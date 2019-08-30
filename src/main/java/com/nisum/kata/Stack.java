@@ -1,6 +1,6 @@
 package com.nisum.kata;
 
-public class Stack {
+public class Stack implements Stackable {
     private int[] items;
     private int position = 0;
 
@@ -8,10 +8,12 @@ public class Stack {
        items = new int[capacity];
     }
 
+    @Override
     public boolean isEmpty() {
         return position==0;
     }
 
+    @Override
     public void push(int item) {
         if(position == getCapacity()){
             throw new OverFlow();
@@ -19,6 +21,7 @@ public class Stack {
         this.items[position++] = item;
     }
 
+    @Override
     public int pop() {
         if(isEmpty()){
             throw new UnderFlow();
@@ -26,10 +29,12 @@ public class Stack {
         return items[--position];
     }
 
+    @Override
     public int getCapacity() {
         return items.length;
     }
 
+    @Override
     public int top() {
         if (isEmpty()){
             throw new UnderFlow();
