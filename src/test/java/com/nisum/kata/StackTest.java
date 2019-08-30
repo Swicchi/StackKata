@@ -88,4 +88,23 @@ public class StackTest {
 
         stack.push(2);
     }
+
+    @Test
+    public void when_22_is_pushed_then_top_is_22() {
+        stack.push(22);
+
+        assertThat(stack.top(),is(22));
+    }
+
+    @Test
+    public void when_42_is_pushed_then_top_is_42() {
+        stack.push(42);
+
+        assertThat(stack.top(),is(42));
+    }
+
+    @Test(expected = Stack.UnderFlow.class)
+    public void when_topping_empty_stack_throws_stack_under_flow() {
+        stack.top();
+    }
 }

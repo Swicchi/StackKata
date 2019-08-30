@@ -30,6 +30,13 @@ public class Stack {
         return items.length;
     }
 
+    public int top() {
+        if (isEmpty()){
+            throw new UnderFlow();
+        }
+        return items[position-1];
+    }
+
     public static class UnderFlow extends RuntimeException {
     }
 
